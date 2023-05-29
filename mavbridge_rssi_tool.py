@@ -49,7 +49,7 @@ async def run():
 
         while True:
             link_quality, signal_level = get_link_quality(args)
-            current_time = datetime.now().strftime("%H:%M:%S.csv")
+            current_time = datetime.now().strftime("%H:%M:%S")
             horizontal_distance = math.sqrt(position_ned[0] ** 2 + position_ned[1] ** 2)
             straight_line_distance = math.sqrt(
                 position_ned[0] ** 2 + position_ned[1] ** 2 + position_ned[2] ** 2
