@@ -11,7 +11,7 @@ from mavsdk import System
 async def run():
     # Init the drone
     drone = System()
-    await drone.connect(system_address="udp://:14540")  # Try 14555 if this doesn't work
+    await drone.connect(system_address="udp://:14550")  # Try 14555 if this doesn't work
     position_ned = [0, 0, 0]
     # Start the tasks
     asyncio.ensure_future(get_position(drone, position_ned))
@@ -21,7 +21,7 @@ async def run():
     parser.add_argument(
         dest="interface",
         nargs="?",
-        default="wlx801f02f51f89",
+        default="wlx78a351863ed9",
         help="wlan interface (default: wlan0)",
     )
     args = parser.parse_args()
@@ -110,6 +110,7 @@ def get_link_quality(args):
 
 
 if __name__ == "__main__":
-    asyncio.ensure_future(run())
-    event_loop = asyncio.get_event_loop()
-    event_loop.run_forever()
+    # asyncio.ensure_future(run())
+    # event_loop = asyncio.get_event_loop()
+    # event_loop.run_forever()
+    asyncio.run(run())
