@@ -11,7 +11,7 @@ from mavsdk import System
 async def run():
     # Init the drone
     drone = System()
-    await drone.connect(system_address="udp://:14540")
+    await drone.connect(system_address="udp://:14540")  # Try 14555 if this doesn't work
     position_ned = [0, 0, 0]
     # Start the tasks
     asyncio.ensure_future(get_position(drone, position_ned))
